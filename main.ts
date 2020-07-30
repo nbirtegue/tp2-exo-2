@@ -16,6 +16,7 @@ input.onButtonPressed(Button.B, function () {
     }
     led.plot(Player, 4)
 })
+let Score = 0
 let pointX = 0
 let Player1 = 0
 let Player = 0
@@ -42,4 +43,11 @@ basic.forever(function () {
         Score = 0
     }
     basic.pause(500)
+    if (PointY == 4 && Player == pointX) {
+        Score += 1
+    } else if (PointY == 4 && Player != pointX) {
+        basic.clearScreen()
+        basic.showString("Score:")
+        basic.showNumber(Score)
+    }
 })
