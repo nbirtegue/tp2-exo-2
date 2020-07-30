@@ -20,6 +20,7 @@ player = 2
 led.plot(player, 4)
 let PointX = randint(0, 4)
 let PointY = -1
+let speed = 500
 basic.forever(function () {
     led.unplot(PointX, PointY)
     led.plot(player, 4)
@@ -29,7 +30,7 @@ basic.forever(function () {
     }
     PointY += 1
     led.plot(PointX, PointY)
-    basic.pause(500)
+    basic.pause(speed)
     if (PointY >= 4 && player == PointX) {
         score += 1
     } else if (PointY >= 4 && player != PointX) {
@@ -37,6 +38,20 @@ basic.forever(function () {
         basic.showString("score:")
         basic.showNumber(score)
         player = 2
+        score = 0
         basic.clearScreen()
+    }
+    if (score == 5) {
+        speed = 450
+    } else if (score == 10) {
+        speed = 300
+    } else if (score == 15) {
+        speed = 250
+    } else if (score == 20) {
+        speed = 200
+    } else if (score == 25) {
+        speed = 150
+    } else if (score == 0) {
+        speed = 500
     }
 })
